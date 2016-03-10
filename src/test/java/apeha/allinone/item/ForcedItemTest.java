@@ -199,9 +199,9 @@ public class ForcedItemTest {
         ModItem createModItem = ItemBuilder.createModItem(item);
         Modification mod1 = createModItem.getMod1();
         Modification mod2 = createModItem.getMod2();
-        System.out.println(createModItem);
-        System.out.println(mod1);
-        System.out.println(mod2);
+        // System.out.println(createModItem);
+        // System.out.println(mod1);
+        // System.out.println(mod2);
         assertNull(mod1);
         assertNull(mod2);
     }

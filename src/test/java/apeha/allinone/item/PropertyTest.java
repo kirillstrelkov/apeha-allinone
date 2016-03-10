@@ -198,8 +198,8 @@ public class PropertyTest {
 
         for (int i = 0; i < lines.length; i++) {
             String line = lines[i];
-            System.out.println(line + "\t" + i + " "
-                    + Property.getScoreFrom(line) + " " + expected[i]);
+            // System.out.println(line + "\t" + i + " "
+//                    + Property.getScoreFrom(line) + " " + expected[i]);
             assertEquals(Property.getScoreFrom(line), expected[i]);
         }
     }
@@ -211,8 +211,8 @@ public class PropertyTest {
 
         for (int i = 0; i < lines.length; i++) {
             String line = lines[i];
-            System.out.println(i + " " + Property.getScoreFrom(line) + " "
-                    + expected[i]);
+            // System.out.println(i + " " + Property.getScoreFrom(line) + " "
+//                    + expected[i]);
             assertEquals(Property.getScoreFrom(line), expected[i]);
         }
     }
@@ -225,7 +225,7 @@ public class PropertyTest {
         for (int i = 0; i < MOST_PROPERTIES.length; i++) {
             String property = MOST_PROPERTIES[i];
             int actual = Property.getScoreFrom(property);
-            System.out.println(i + "\t" + property + "\t" + actual);
+            // System.out.println(i + "\t" + property + "\t" + actual);
             assertEquals(actual, expected[i]);
         }
     }

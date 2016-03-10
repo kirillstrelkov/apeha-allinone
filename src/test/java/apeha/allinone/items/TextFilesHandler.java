@@ -7,7 +7,6 @@ import apeha.allinone.item.ItemBuilder;
 import apeha.allinone.item.Property;
 import apeha.allinone.item.TextParser;
 import apeha.allinone.search.ItemWithScore;
-import com.google.common.base.Strings;
 import org.apache.commons.codec.binary.Base64;
 
 import java.io.*;
@@ -72,10 +71,8 @@ public class TextFilesHandler {
     }
 
     public static void printList(List<ItemWithScore> list) {
-        Iterator<ItemWithScore> it = list.iterator();
-        while (it.hasNext()) {
-            ItemWithScore next = it.next();
-            System.out.println(next.getName() + "\n" + next.toString());
+        for (ItemWithScore item : list) {
+            System.out.println(item.getName() + "\n" + item.toString());
         }
     }
 
@@ -193,12 +190,12 @@ public class TextFilesHandler {
                 while ((line = reader.readLine()) != null) {
                     String name = TextParser.getName(line);
                     if (name != null) {
-                        System.out.println(oneItem + "\n ------");
+                        // System.out.println(oneItem + "\n ------");
                         Item item = ItemBuilder.createItem(oneItem);
                         if (item != null
                                 && item.getPropertiesAndValues().size() > 0) {
                             list.add(item);
-                            System.out.println(item.getName());
+                            // System.out.println(item.getName());
                             oneItem = "";
                         }
                         oneItem = oneItem.concat(line) + "\n";
@@ -217,7 +214,7 @@ public class TextFilesHandler {
         if (oneItem.length() > 1) {
             Item item = ItemBuilder.createItem(oneItem);
             list.add(item);
-            System.out.println(item.getName() + " added.");
+            // System.out.println(item.getName() + " added.");
         }
         return list;
     }
@@ -266,7 +263,7 @@ public class TextFilesHandler {
             String name = item.getName();
             item.setImageSrc(nameAndFile.get(name));
             assertNotNull("Image src is null:" + name, item.getImageSrc());
-            System.out.println(item.getImageSrc());
+            // System.out.println(item.getImageSrc());
         }
         return allItems;
     }
@@ -304,8 +301,8 @@ public class TextFilesHandler {
                 // System.out.println("Comparing " + prepareImgName(itemName) +
                 // " " + name);
                 if (prepareImgName(itemName).equals(name)) {
-                    System.out.println(itemName + ": " + imageDir.toString()
-                            + "/" + imageName);
+                    // System.out.println(itemName + ": " + imageDir.toString()
+//                            + "/" + imageName);
                     File fileImage = new File(imageDir.toString() + "/"
                             + imageName);
                     byte[] bread = new byte[(int) fileImage.length()];
@@ -336,7 +333,7 @@ public class TextFilesHandler {
         File[] listFiles = dir.listFiles();
         for (File f : listFiles) {
             if (f.length() < 1) {
-                System.out.println(f.toString() + " size: " + f.length());
+                // System.out.println(f.toString() + " size: " + f.length());
                 f.delete();
                 incorrectFiles.add(f.toString());
             }
@@ -368,7 +365,7 @@ public class TextFilesHandler {
     private Map<String, String> downloadImagesToImageDir(Map<String, URL> imageNameAndURL) {
         Map<String, String> nameAndFile = new TreeMap<String, String>();
         File dir = getImageDir();
-        System.out.println("Download folder: " + dir);
+//        System.out.println("Download folder: " + dir);
         if (!dir.exists()) {
             assert dir.mkdir();
         }
@@ -380,11 +377,11 @@ public class TextFilesHandler {
             nameAndFile.put(name, pathToSave);
             // System.out.println(name + "\t" + pathToSave);
             File save = new File(pathToSave);
-            System.out.print(Strings.padEnd(String.format("Downloading: %s", name), 50, '.'));
+//            System.out.print(Strings.padEnd(String.format("Downloading: %s", name), 50, '.'));
             if (save.exists() && save.length() > 0L) {
-                System.out.println("SKIPPED");
+//                System.out.println("SKIPPED");
             } else {
-                int tryoutTimes = 5;
+                int tryoutTimes = 10;
                 for (int i = 0; i < tryoutTimes; i++) {
                     try {
                         if (save.exists()) {
@@ -421,10 +418,10 @@ public class TextFilesHandler {
                         e.printStackTrace();
                     }
                     if (save.length() > 0) {
-                        System.out.println("OK");
+//                        System.out.println("OK");
                         break;
                     } else {
-                        System.out.println("Trying again");
+//                        System.out.println(".");
                     }
 
                 }

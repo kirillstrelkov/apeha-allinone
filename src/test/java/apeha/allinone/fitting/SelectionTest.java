@@ -179,8 +179,8 @@ public class SelectionTest {
                 limit, SearchType.OPTIMAL, cats, params);
         for (SearchedSet set : sets) {
             // System.out.println(set.toString());
-            System.out.println(set.amulet.getName() + " "
-                    + set.helmet.getName());
+            // System.out.println(set.amulet.getName() + " "
+//                    + set.helmet.getName());
             assertTrue(Integer.parseInt(set.amulet.getPropertiesAndValues()
                     .get(Property.REQUIRED_LEVEL)) >= 7);
             assertTrue(Integer.parseInt(set.helmet.getPropertiesAndValues()
@@ -209,7 +209,7 @@ public class SelectionTest {
             if (line.length() > 0)
                 assertEquals(1, Collections.frequency(lines, line));
         }
-        System.out.println(formattedString);
+        // System.out.println(formattedString);
     }
 
     @Test
@@ -248,7 +248,7 @@ public class SelectionTest {
 
         for (SearchedSet set : sets) {
             assertTrue(set.score > 0);
-            System.out.println(set);
+            // System.out.println(set);
         }
         assertTrue(sets.size() > 0);
     }
@@ -267,7 +267,7 @@ public class SelectionTest {
 
         for (SearchedSet set : sets) {
             assertTrue(set.score > 0);
-            System.out.println(set);
+            // System.out.println(set);
         }
         assertTrue(sets.size() > 0);
     }
@@ -288,7 +288,7 @@ public class SelectionTest {
 
         for (SearchedSet set : sets) {
             assertTrue(set.score > 0);
-            System.out.println(set);
+            // System.out.println(set);
         }
         assertTrue(sets.size() > 0);
     }
@@ -449,7 +449,7 @@ public class SelectionTest {
 
     @Test
     public void selectionPerformanceTest() {
-        System.out.println(timeForSelection);
+        // System.out.println(timeForSelection);
         assertTrue(timeForSelection < 119836);
     }
 }

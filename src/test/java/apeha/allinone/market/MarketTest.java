@@ -112,7 +112,7 @@ public class MarketTest {
     public void marketSearchItemCreationTest() throws Exception {
         String file = MarketTest.class.getClassLoader().getResource("market/foundItems").getFile();
         List<Item> items = TextParser.getItems(new FileReader(file));
-        System.out.println(items);
+        // System.out.println(items);
         assertEquals(20, items.size());
     }
 

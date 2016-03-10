@@ -88,7 +88,7 @@ public class ItemsTesting {
         TreeSet<String> diff = (TreeSet<String>) handler.compareGetDifference(
                 set, set2);
         if (diff.size() > 0)
-            System.out.println("difference:" + diff.size() + "\n" + diff);
+            // System.out.println("difference:" + diff.size() + "\n" + diff);
         assertTrue("There is difference between sets", diff.size() == 0);
     }
 
@@ -96,11 +96,11 @@ public class ItemsTesting {
     @Test
     public void printItemSize() throws UnsupportedEncodingException {
         long freeMemory = Runtime.getRuntime().freeMemory();
-        System.out.println("mem without list:" + freeMemory);
+        // System.out.println("mem without list:" + freeMemory);
         List<Item> allItems = handler.getAllItems();
         long afterListMem = Runtime.getRuntime().freeMemory();
-        System.out.println("mem without list:" + afterListMem);
-        System.out.println("mem diff:" + (freeMemory - afterListMem));
+        // System.out.println("mem without list:" + afterListMem);
+        // System.out.println("mem diff:" + (freeMemory - afterListMem));
         Iterator<Item> iterator = allItems.iterator();
         int maxNameSize = 0;
         int maxBodySize = 0;
@@ -113,12 +113,12 @@ public class ItemsTesting {
                 maxNameSize = itemNameSize;
             if (itemBodySize > maxBodySize)
                 maxBodySize = itemBodySize;
-            System.out.println("Size of name:" + itemNameSize);
-            System.out.println("Size of body:" + itemBodySize);
+            // System.out.println("Size of name:" + itemNameSize);
+            // System.out.println("Size of body:" + itemBodySize);
         }
 
-        System.out.println("Max item name size:" + maxNameSize);
-        System.out.println("Max item body size:" + maxBodySize);
+        // System.out.println("Max item name size:" + maxNameSize);
+        // System.out.println("Max item body size:" + maxBodySize);
     }
 
 }

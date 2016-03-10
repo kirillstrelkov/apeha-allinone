@@ -73,8 +73,8 @@ public class AppPropertiesTest {
         String path = createTempFile.toString();
         properties.store(new OutputStreamWriter(new FileOutputStream(
                 createTempFile), "UTF-8"), null);
-        System.out.println(path);
-        System.out.println(properties);
+        // System.out.println(path);
+        // System.out.println(properties);
 
         LineNumberReader reader = new LineNumberReader(new FileReader(
                 createTempFile));

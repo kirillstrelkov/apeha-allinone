@@ -101,7 +101,7 @@ public class PictureViewingManualTest {
     }
 
     private void drawAnImage(final String selection) {
-        System.out.println(selection);
+        // System.out.println(selection);
         ItemWithScore pass = new ItemWithScore(
                 DbHandler.getItemByName(selection));
         itemGui = ItemGui.newItemGui(label, pass);

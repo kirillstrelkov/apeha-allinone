@@ -22,19 +22,19 @@ public class PlayerSetTest {
         assertEquals(0, (int) player.stats.get(Property.POWER));
         assertEquals(0, (int) player.stats.get(Property.SPITE));
         assertEquals(0, (int) player.stats.get(Property.MASTERY_OF_WEAPON));
-        System.out.println(player.toString());
+        // System.out.println(player.toString());
         player.putOn(modItem);
         assertEquals(10, (int) player.stats.get(Property.POWER));
         assertEquals(10, (int) player.stats.get(Property.SPITE));
         assertEquals(10, (int) player.stats.get(Property.MASTERY_OF_WEAPON));
-        System.out.println("========");
-        System.out.println(player.toString());
+        // System.out.println("========");
+        // System.out.println(player.toString());
         player.putOn(new ModItem(DbHandler.getItemByName("Амулет Подавления")));
         assertEquals(18, (int) player.stats.get(Property.POWER));
         assertEquals(18, (int) player.stats.get(Property.SPITE));
         assertEquals(50, (int) player.stats.get(Property.MARKSMANSHIP));
-        System.out.println("========");
-        System.out.println(player.toString());
+        // System.out.println("========");
+        // System.out.println(player.toString());
     }
 
     @Test
@@ -46,23 +46,23 @@ public class PlayerSetTest {
         assertEquals(0, (int) player.stats.get(Property.GUARD_OF_FORTUNE));
         assertEquals(0,
                 (int) player.stats.get(Property.GUARD_OF_CRITICAL_STRIKE));
-        System.out.println(player.toString());
+        // System.out.println(player.toString());
         for (int i = 1; i < 11; i++) {
             ModItem modItem = new ModItem(item);
             int j = i;
             if (i >= 9)
                 j = 8;
             player.putOn(modItem);
-            System.out.println(player.toString());
+            // System.out.println(player.toString());
             assertEquals(12 * j, (int) player.stats.get(Property.AGILITY));
             assertEquals(14 * j, (int) player.stats.get(Property.REACTION));
             assertEquals(35 * j,
                     (int) player.stats.get(Property.GUARD_OF_FORTUNE));
             assertEquals(35 * j,
                     (int) player.stats.get(Property.GUARD_OF_CRITICAL_STRIKE));
-            System.out.println("========");
+            // System.out.println("========");
         }
-        System.out.println(player.toString());
+        // System.out.println(player.toString());
     }
 
     @Test
@@ -72,20 +72,20 @@ public class PlayerSetTest {
         assertEquals(0, (int) player.stats.get(Property.POWER));
         assertEquals(0, (int) player.stats.get(Property.SPITE));
         assertEquals(0, (int) player.stats.get(Property.FOTUNE));
-        System.out.println(player.toString());
+        // System.out.println(player.toString());
         for (int i = 1; i < 4; i++) {
             ModItem modItem = new ModItem(item);
             int j = i;
             if (i >= 3)
                 j = 2;
             player.putOn(modItem);
-            System.out.println(player.toString());
+            // System.out.println(player.toString());
             assertEquals(20 * j, (int) player.stats.get(Property.POWER));
             assertEquals(7 * j, (int) player.stats.get(Property.SPITE));
             assertEquals(18 * j, (int) player.stats.get(Property.FOTUNE));
-            System.out.println("========");
+            // System.out.println("========");
         }
-        System.out.println(player.toString());
+        // System.out.println(player.toString());
     }
 
     @Test
@@ -97,23 +97,23 @@ public class PlayerSetTest {
         assertEquals(0, (int) player.stats.get(Property.GUARD_OF_FORTUNE));
         assertEquals(0,
                 (int) player.stats.get(Property.GUARD_OF_CRITICAL_STRIKE));
-        System.out.println(player.toString());
+        // System.out.println(player.toString());
         for (int i = 1; i < 4; i++) {
             ModItem modItem = new ModItem(item);
             int j = i;
             if (i >= 3)
                 j = 2;
             player.putOn(modItem);
-            System.out.println(player.toString());
+            // System.out.println(player.toString());
             assertEquals(20 * j, (int) player.stats.get(Property.AGILITY));
             assertEquals(-20 * j, (int) player.stats.get(Property.REACTION));
             assertEquals(10 * j,
                     (int) player.stats.get(Property.GUARD_OF_FORTUNE));
             assertEquals(-30 * j,
                     (int) player.stats.get(Property.GUARD_OF_CRITICAL_STRIKE));
-            System.out.println("========");
+            // System.out.println("========");
         }
-        System.out.println(player.toString());
+        // System.out.println(player.toString());
     }
 
     @Test
@@ -200,8 +200,8 @@ public class PlayerSetTest {
                 item5, item6, item7, item8);
 
         PlayerSet player = new PlayerSet();
-        System.out.println(player);
-        System.out.println("============================================");
+        // System.out.println(player);
+        // System.out.println("============================================");
         // assertEquals(0, (int) player.stats.get(Property.POWER));
         for (Item item : items) {
             ModItem modItem = new ModItem(item);
@@ -210,7 +210,7 @@ public class PlayerSetTest {
             // System.out.println("============================================");
             // assertEquals(3, (int) player.stats.get(Property.POWER));
         }
-        System.out.println(player);
+        // System.out.println(player);
     }
 
     @Test

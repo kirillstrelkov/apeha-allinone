@@ -1,7 +1,6 @@
 package apeha.allinone.item;
 
 import apeha.allinone.item.stone.Facet;
-import apeha.allinone.item.stone.Modification;
 import apeha.allinone.item.stone.Stone;
 import apeha.allinone.market.MarketTest;
 import org.junit.Ignore;
@@ -239,7 +238,7 @@ public class StonesTest {
         String file = MarketTest.class.getClassLoader().getResource("market/allItemsInMarket").getFile();
         List<Item> items = TextParser.getItems(new FileReader(new File(file)));
         for (Item item : items) {
-            System.out.println(item.getName() + "\t" + Modification.getModifications(item));
+            // System.out.println(item.getName() + "\t" + Modification.getModifications(item));
         }
     }
 

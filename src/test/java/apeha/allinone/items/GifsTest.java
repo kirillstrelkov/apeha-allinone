@@ -38,7 +38,7 @@ public class GifsTest {
             assertNotNull("Image src is null:" + name, imageSrc);
             assertTrue("Image does not exist in filesystem",
                     new File(imageSrc).exists());
-            System.out.println(item.getImageSrc());
+            // System.out.println(item.getImageSrc());
         }
     }
 
@@ -49,7 +49,7 @@ public class GifsTest {
         while (iterator.hasNext()) {
             Item item = iterator.next();
             String name = item.getName();
-            System.out.println("\n" + name + "\n" + item);
+            // System.out.println("\n" + name + "\n" + item);
         }
     }
 }

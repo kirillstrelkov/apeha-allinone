@@ -265,32 +265,27 @@ public class SpellTest {
     }
 
     @Test
-    public void spellTest() {
+    public void spellTest() throws InterruptedException {
         SpellableItem item = ItemBuilder.createSpellableItem(itemFromBlacksmithModAndSpell);
+        assertNotNull(item);
         int[] spelltimes = {30, 45, 60, 75, 90};
         DateTime instance;
         for (int time : spelltimes) {
-            instance = DateTime.now();
             item.spell(time);
+            Thread.sleep(100);
+            String timeLeft = item.getTimeLeft();
+            instance = DateTime.now().minusSeconds(1);
 
             int diffDays = Days.daysBetween(instance, item.getDate()).getDays();
             assertEquals(time, diffDays);
 
-            int diffMinutes = Minutes.minutesBetween(instance, item.getDate())
-                    .getMinutes();
-            // assertEquals(time * 24 * 60, diffMinutes);
+            int diffMinutes = Minutes.minutesBetween(instance, item.getDate()).getMinutes();
             assertEquals((double) time * 24 * 60, (double) diffMinutes, 60.00);
 
-//            System.out.println(item.getTimeLeft());
-            String timeLeft = item.getTimeLeft();
             String timeLeftOffset0 = getTimeLeft(instance, time, 0);
             String timeLeftOffset1 = getTimeLeft(instance, time, 1);
             boolean isCorrect = timeLeftOffset0.equals(timeLeft) ||
                     timeLeftOffset1.equals(timeLeft);
-//            if (!isCorrect) {
-//                System.out.println(item.getTimeLeft());
-//            }
-//          NOTE: Could fail because of time shift
             assertTrue(
                     String.format("Date is not correct, possible error - delta is more than 2 sec\n" +
                                     "Item time left: %s, offset 0: %s, offset1: %s",
@@ -380,7 +375,7 @@ public class SpellTest {
         SpellableItem item = ItemBuilder.createSpellableItem(text);
         assertNotNull(item);
         assertEquals("Какой то комментарий", item.getName());
-        System.out.println(item.toString());
+        // System.out.println(item.toString());
     }
 
     @Test
@@ -431,7 +426,7 @@ public class SpellTest {
         String file = SpellTest.class.getClassLoader().getResource("spell/newMultiItems").getFile();
         List<Item> items = TextParser.getItems(new FileReader(file));
         for (Item item : items) {
-            System.out.println(item.getName());
+            // System.out.println(item.getName());
             if (item.getName().contains("Меч Стихий"))
                 assertFalse(item.getPropertiesAndValues().containsKey(
                         Property.SPELLED));
@@ -444,8 +439,7 @@ public class SpellTest {
     @Test
     public void parseXMLwithComments() throws IOException {
         XMLIO xmlio = new XMLIO();
-        List<SpellableItem> items = xmlio.getItemsFromXML(new FileReader(
-                fileSpellWithComments));
+        List<SpellableItem> items = xmlio.getItemsFromXML(new FileReader(fileSpellWithComments));
 
         List<String> dates = getDates(fileSpellWithComments);
         for (SpellableItem item : items) {

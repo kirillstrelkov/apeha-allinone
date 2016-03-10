@@ -227,11 +227,11 @@ public class ItemScoreTest {
         List<ItemWithScore> found = ItemSearch.findItems(maxPrice, maxLevel,
                 limit, category, searchType, params);
         for (ItemWithScore item : found) {
-            System.out.print(item.getName());
+            // System.out.print(item.getName());
             int diff = item.getGoodStats() - item.getBadStats();
-            System.out.println("\t" + diff);
+            // System.out.println("\t" + diff);
         }
-        // TODO
+        // TODO add verification
     }
 
     @Test
@@ -260,12 +260,12 @@ public class ItemScoreTest {
         for (ItemWithScore item : found) {
             int goodbad = item.getGoodStats() - item.getBadStats();
             Map<Property, String> props = item.getPropertiesAndValues();
-            System.out.println(String.format("%s\t%d\t%s\t%s", item.getName(),
-                    goodbad, props.get(Property.PRICE_IN_SHOP),
-                    props.get(Property.DURABILITY)));
+            // System.out.println(String.format("%s\t%d\t%s\t%s", item.getName(),
+//                    goodbad, props.get(Property.PRICE_IN_SHOP),
+//                    props.get(Property.DURABILITY)));
         }
         // assertEquals(12, found.size());
-        // TODO
+        // TODO add verification
     }
 
     @Test

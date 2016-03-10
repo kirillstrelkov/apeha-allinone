@@ -142,7 +142,7 @@ public class XMLIO {
                 } else if (nodeName.equals(XMLTags.date)) {
                     date = Utils.formatDateFrom(textContent);
                 } else if (nodeName.equals(XMLTags.comment)) {
-                    comment = textContent.replaceAll("\t", "").trim();
+                    comment = textContent.replaceAll("\t", "").replaceAll(" {2,}", "").trim();
                 }
             }
 
